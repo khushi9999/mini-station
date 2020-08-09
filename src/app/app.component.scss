@@ -1,0 +1,334 @@
+body{
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+
+#sidebar {
+    overflow: hidden;
+    z-index: 3;
+}
+#sidebar .list-group {
+    min-width: 400px;
+    background-color: #333;
+    min-height: 100vh;
+}
+#sidebar i {
+    margin-right: 6px;
+}
+
+#sidebar .list-group-item {
+    border-radius: 0;
+    background-color: #333;
+    color: #ccc;
+    border-left: 0;
+    border-right: 0;
+    border-color: #2c2c2c;
+    white-space: nowrap;
+}
+
+/* highlight active menu */
+#sidebar .list-group-item:not(.collapsed) {
+    background-color: #222;
+}
+
+/* closed state */
+#sidebar .list-group .list-group-item[aria-expanded="false"]::after {
+  content: " \f0d7";
+  font-family: FontAwesome;
+  display: inline;
+  text-align: right;
+  padding-left: 5px;
+}
+
+/* open state */
+#sidebar .list-group .list-group-item[aria-expanded="true"] {
+  background-color: #222;
+}
+#sidebar .list-group .list-group-item[aria-expanded="true"]::after {
+  content: " \f0da";
+  font-family: FontAwesome;
+  display: inline;
+  text-align: right;
+  padding-left: 5px;
+}
+
+/* level 1*/
+#sidebar .list-group .collapse .list-group-item,
+#sidebar .list-group .collapsing .list-group-item  {
+  padding-left: 20px;
+}
+
+/* level 2*/
+#sidebar .list-group .collapse > .collapse .list-group-item,
+#sidebar .list-group .collapse > .collapsing .list-group-item {
+  padding-left: 30px;
+}
+
+/* level 3*/
+#sidebar .list-group .collapse > .collapse > .collapse .list-group-item {
+  padding-left: 40px;
+}
+
+@media (max-width:768px) {
+    #sidebar {
+        min-width: 35px;
+        max-width: 40px;
+        overflow-y: auto;
+        overflow-x: visible;
+        transition: all 0.25s ease;
+        transform: translateX(-45px);
+        position: fixed;
+    }
+    
+    #sidebar.show {
+        transform: translateX(0);
+    }
+
+    #sidebar::-webkit-scrollbar{ width: 0px; }
+    
+    #sidebar, #sidebar .list-group {
+        min-width: 1px;
+        overflow: visible;
+    }
+    /* overlay sub levels on small screens */
+    #sidebar .list-group .collapse.show, #sidebar .list-group .collapsing {
+        position: relative;
+        z-index: 1;
+        width: 190px;
+        top: 0;
+    }
+    #sidebar .list-group > .list-group-item {
+        text-align: center;
+        padding: .75rem .5rem;
+    }
+    /* hide caret icons of top level when collapsed */
+    #sidebar .list-group > .list-group-item[aria-expanded="true"]::after,
+    #sidebar .list-group > .list-group-item[aria-expanded="false"]::after {
+        display:none;
+    }
+}
+
+.collapse.show {
+  visibility: visible;
+}
+.collapsing {
+  visibility: visible;
+  height: 0;
+  -webkit-transition-property: height, visibility;
+  transition-property: height, visibility;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.collapsing.width {
+  -webkit-transition-property: width, visibility;
+  transition-property: width, visibility;
+  width: 0;
+  height: 100%;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+main{
+  min-height: 100vh;
+  background-color: #fafafa;
+  max-width: 96%;
+  position: absolute;
+  margin-left: 54px;
+  padding-left: 0 !important;
+  padding-right: 0px;
+}
+
+#sidebar{
+    width: 57px;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+  
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  
+  .fa-google {
+    background: #dd4b39;
+    color: white;
+  }
+  
+  .fa-linkedin {
+    background: #007bb5;
+    color: white;
+  }
+  
+  .fa-youtube {
+    background: #bb0000;
+    color: white;
+  }
+  
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+  
+  .fa-pinterest {
+    background: #cb2027;
+    color: white;
+  }
+  
+  .fa-snapchat-ghost {
+    background: #fffc00;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  }
+  
+  .fa-skype {
+    background: #00aff0;
+    color: white;
+  }
+  
+  .fa-android {
+    background: #a4c639;
+    color: white;
+  }
+  
+  .fa-dribbble {
+    background: #ea4c89;
+    color: white;
+  }
+  
+  .fa-vimeo {
+    background: #45bbff;
+    color: white;
+  }
+  
+  .fa-tumblr {
+    background: #2c4762;
+    color: white;
+  }
+  
+  .fa-vine {
+    background: #00b489;
+    color: white;
+  }
+  
+  .fa-foursquare {
+    background: #45bbff;
+    color: white;
+  }
+  
+  .fa-stumbleupon {
+    background: #eb4924;
+    color: white;
+  }
+  
+  .fa-flickr {
+    background: #f40083;
+    color: white;
+  }
+  
+  .fa-yahoo {
+    background: #430297;
+    color: white;
+  }
+  
+  .fa-soundcloud {
+    background: #ff5500;
+    color: white;
+  }
+  
+  .fa-reddit {
+    background: #ff5700;
+    color: white;
+  }
+  
+  .fa-rss {
+    background: #ff6600;
+    color: white;
+  }
+
+  .fa-whatsup {
+    width: 40px;
+    height: 40px;
+  }
+  .fa-calcnder {
+    width: 40px !important;
+    height: 41px !important;
+    background: url('../assets/images/calandar.png') ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50% !important;
+    margin-left: 0px !important;
+    background-position-x: -1px;
+    background-position-y: 1px;
+    margin: 4px 3px 4px 7px !important;
+  }
+
+  .fa-whatsup {
+    width: 40px !important;
+    height: 40px !important;
+    background: url('../assets/images/whatsup.png') ;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50% !important;
+    margin-left: 0px !important;
+    background-position-x: 0px;
+    background-position-y: 0px;
+    margin: 3px 4px 4px 8px !important;
+  }
+  .fa-meet {
+    width: 52px !important;
+    height: 52px !important;
+    background: url('../assets/images/googlemeet.png') ;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50% !important;
+    margin-left: 0px !important;
+    background-position-x: 1px;
+    background-position-y: 9px;
+    margin: -8px 3px 3px 1px !important;
+  }
+
+  div a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.fa:hover, .fa:active {
+  opacity: 1;
+}
+
+.myactive, .myfb, .mytwit, .mygoogle, .mylink, .myyou, .myinsta, .mypt {
+  opacity: 1 !important;
+}
+
+.fa {
+    padding: 10px;
+    font-size: 20px;
+    /* width: 50px; */
+    text-align: center;
+    text-decoration: none;
+    margin: 4px 8px;
+}
+
+
+#web-view{
+  height: -webkit-fill-available;
+}

@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row d-flex d-md-block flex-nowrap wrapper">
+    <div class="col-md-3 float-left col-1 pl-0 pr-0 width collapse show" id="sidebar" style="">
+      <div class="list-group border-0 text-center text-md-left">
+        <a href="#" class="fa fa-google" [class.myactive]="mygoogle" (click)="openModal('gmail')"></a>
+        <a href="#" class="fa fa-facebook" [ngClass]="{'myactive': myfb}" (click)="openModal('fb')"></a>
+        <a href="#" class="fa fa-whatsup" [class.myactive]="mywp" (click)="openModal('webwhatsup')"></a>
+        <!-- <a href="#" class="fa fa-meet"  [class.myactive]="mymeet"  (click)="openModal('googlemeet')" ></a> -->
+        <a href="#" class="fa fa-calcnder" [class.myactive]="myclndr" (click)="openModal('calander')"></a>
+        <a href="#" class="fa fa-twitter" [class.myactive]="mytwit" (click)="openModal('twitter')"></a>
+        <a href="#" class="fa fa-linkedin" [class.myactive]="mylnkd" (click)="openModal('linkedin')"></a>
+        <a href="#" class="fa fa-youtube" [class.myactive]="myyou" (click)="openModal('youtube')"></a>
+        <a href="#" class="fa fa-instagram" [class.myactive]="myinsta" (click)="openModal('instagram')"></a>
+        <a href="#" class="fa fa-pinterest" [class.myactive]="mypt" (click)="openModal('pinterest')"></a>
+      </div>
+    </div>
+    <div>
+      <main class="col-md-9 float-left col  pl-md-2  main">
+        <webview id="web-view" src={{url}} autosize="on" nodeintegration="on" disablewebsecurity="on"
+          webpreferences="allowRunningInsecureContent"
+          useragent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36">
+        </webview>
+      </main>
+    </div>
+  </div>
+</div>
+
